@@ -1,0 +1,170 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "description":"This is the api for users",
+        "version":"__version__"
+    },
+    "tags":[
+        {
+            "name":"PUBLIC ROUTE",
+            "description":"Public Route"
+        }
+    ],
+     "paths":{
+        "/health":{
+            "summary":"Testing User Check",
+            "get":{
+                "description":"Testing Users for the app",
+                "tags":["PUBLIC ROUTE"],
+                "responses":{
+                    "200":{
+                        "description":"User Pass"
+                        }
+                    }
+                }
+            },
+            "/users":{
+                "summary":"Testing User Route",
+                "get":{
+                    "description":"Testing User Route for the app",
+                    "tags":["PUBLIC ROUTE"],
+                    "parameters":[
+                    {
+                            "in":"query",
+                        "name":"role",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose role as admin or user"
+                    },
+                    {
+                        "in":"query",
+                        "name":"city",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter City"
+                    }
+                ],
+                "responses":{
+                        "200":{
+                            "description":"User Pass"
+                            }
+                        }
+                    }
+            },
+            "/user/{id}":{
+                "summary":"Testing User Route",
+                "get":{
+                    "description":"Testing User Route for the app",
+                    "tags":["PUBLIC ROUTE"],
+                    "parameters":[
+                    {
+                            "in":"path",
+                        "name":"id",
+                        "required":true,
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter Object Id"
+                    }
+                ],
+                "responses":{
+                        "200":{
+                            "description":"User Pass"
+                        }
+                    }
+                }
+            },
+            
+            "/addUser":{
+            "summary":"Testing Add User  Route",
+            "post":{
+                "description":"Testing Add Users Route for the app",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":"true",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "name":"Punith",
+                                "city":"Delhi",
+                                "phone":87878933,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Pass"
+                    }
+                }
+            }
+        },
+
+        "/updateUser":{
+            "summary":"Testing User Route",
+            "put":{
+                "description":"Testing Users Route for the app",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":"true",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":"",
+                                "name":"Vinith",
+                                "city":"Delhi",
+                                "phone":87878933,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Pass"
+                    }
+                }
+            }
+        },
+        "/deleteUser":{
+            "summary":"Testing User Route",
+            "delete":{
+                "description":"Testing Users Route for the app",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":"true",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":""
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Pass"
+                    }
+                }
+            }
+        }  
+    }
+}
+   
